@@ -1,0 +1,9 @@
+1. Jelaskan perbedaan antara pengembangan aplikasi mobile secara hybrid (contoh: Flutter) dan pengembangan aplikasi mobile secara native (contoh: Kotlin untuk pengembangan aplikasi Android).
+Jawab: 
+Aplikasi hybrid dikembangkan di berbagai platform, sedangkan aplikasi native dikembangkan untuk sistem operasi tertentu (android saja, atau ios saja). 
+Biasanya pengembangan apliaksi mobile yang dikembangkan secara hybrid menggunakan framework tertentu seperti flutter dan bahasa pemrograman yang dapat digunakan terbatas serta kinerja mungkin sedikit lambat karena harus melalui perantara terlebih dahulu. 
+Sedangkan Aplikasi mobile yang dikembangkan secara native dapat dikembangkan dengan kode terpisah untuk setiap platform serta kinerja lebih baik karena dieksekusi langsung oleh sistem tetapi pengembangan biasanya lebih lama.
+
+
+2. Sebutkan contoh kasus yang tepat untuk pengembangan aplikasi mobile secara hybrid.
+Jawab: Ketika ada seorang client yang membutuhkan sebuah aplikasi mobile  dengan cepat yang dapat di rilis di 2 patform sekaligus seperti Android dan IoS dengan dana yang terbatas dan hanya dikerjakan oleh 1 orang, maka pengembangan aplikasi mobile secara hybrid merupakan hal yang tepat dilakukan.
