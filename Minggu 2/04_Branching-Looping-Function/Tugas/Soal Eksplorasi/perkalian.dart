@@ -1,6 +1,11 @@
 void main() {
-  int nilai = 9; 
-  for (int i = 1; i <=10; i++){
-    print(nilai * i);
+  int n = 3; 
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= 10; j++) {
+      int hasil = i * j;
+      print("$hasil\t");
+    }
+    print(""); 
   }
 }
