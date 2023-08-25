@@ -8,7 +8,7 @@
             "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart",
-            "program": "Minggu 2/04_Branching-Looping-Function/Tugas/Soal Prioritas 2/function.dart",
+            "program": "Minggu 2/04_Branching-Looping-Function/Tugas/Soal Eksplorasi/bilanganPrima.dart",
         }
     ]
 }
