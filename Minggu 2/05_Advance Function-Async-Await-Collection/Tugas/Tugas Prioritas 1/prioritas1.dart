@@ -3,8 +3,8 @@ Future<List<int>> listKali(List<int> data, int pengali) async {
 
   for (int i = 0; i < data.length; i++) {
     await Future.delayed(Duration(seconds: 1));
-    int multipliedValue = data[i] * pengali;
-    hasil.add(multipliedValue);
+    int nilaiKali = data[i] * pengali;
+    hasil.add(nilaiKali);
   }
 
   return hasil;
