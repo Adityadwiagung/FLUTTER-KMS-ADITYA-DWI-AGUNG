@@ -8,7 +8,7 @@
             "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart",
-            "program": "Minggu 3/06_Dart Object Oriented Programming/Tugas/Soal Eksplorasi/tokobuku.dart",
+            "program": "Minggu 3/07_Deep Dive into Dart Object Oriented Programming/Tugas/Soal Eksplorasi/eksplorasi.dart",
         }
     ]
 }
