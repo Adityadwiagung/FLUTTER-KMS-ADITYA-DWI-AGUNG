@@ -23,7 +23,7 @@ class KelipatanPersektuanTerkecil extends Matematika {
 
   @override
   int hasil() {
-    int hasilKPK = kpk(2, 5); // Ganti angka sesuai kebutuhan
+    int hasilKPK = kpk(2, 5);
     return hasilKPK;
   }
 }
@@ -40,7 +40,7 @@ int fpb(int nilai1, int nilai2) {
 
   @override
   int hasil() {
-    int hasilFPB = fpb(9, 15); // Ganti angka sesuai kebutuhan
+    int hasilFPB = fpb(9, 15);
     return hasilFPB;
   }
 
