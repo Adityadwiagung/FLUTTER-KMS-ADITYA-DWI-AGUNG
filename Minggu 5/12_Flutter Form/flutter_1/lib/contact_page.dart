@@ -77,10 +77,8 @@ class _ContactPageState extends State<ContactPage> {
         name: _nameValue, 
         phone: _phoneValue,
       );
-
-      resetField();
-
       index = -1;
+      resetField();
       setState(() {});
     }
   }
@@ -153,10 +151,8 @@ class _ContactPageState extends State<ContactPage> {
                       addContact();
                     } else{
                       updateContact(selectIndex);
+                      selectIndex = -1;
                     }
-                    
-                    
-
                   } : null,
                 ),
               ],
