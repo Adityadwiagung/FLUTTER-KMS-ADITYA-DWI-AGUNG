@@ -10,5 +10,6 @@ class ThemeColor{
   Color m3SysLightPurple70 = const Color(0xffe7e0ec);
   Color m3SysLightPurple60 = const Color(0xff49454f);
   Color m3SysLightPurple50 = const Color(0xfffffbfe);
+  Color m3SysLightPurple40 = const Color(0xff21005d);
   Color whiteColor = const Color(0xffffffff);
 }

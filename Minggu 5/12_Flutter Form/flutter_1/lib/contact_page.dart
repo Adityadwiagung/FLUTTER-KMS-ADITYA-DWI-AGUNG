@@ -180,8 +180,22 @@ class _ContactPageState extends State<ContactPage> {
               itemBuilder: (context, index) {
                 var data = contactModel[index];
                 return ListTile(
-                  leading: const CircleAvatar(
-                    child: Text('A'),
+                  leading: Container(
+                    width: 40,
+                    height: 40,
+                    decoration:BoxDecoration(
+                      color: ThemeColor().m3SysLightPurple90,
+                      shape: BoxShape.circle,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      data.name[0],
+                      style: TextStyle(
+                        color: ThemeColor().m3SysLightPurple40,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
                   ),
                   title:  Text(data.name),
                   subtitle: Text(data.phone),
