@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_123/contact/contact_page.dart';
 import 'package:flutter_123/detail_image.dart';
 import 'package:flutter_123/galery_page.dart';
 
@@ -19,10 +20,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: '/contact',
       routes: {
         '/': (_) => const MyGalery(),
         '/detail': (_) => const DetailImage(),
+        '/contact': (_) => const ContactPage(),
       },
     );
   }

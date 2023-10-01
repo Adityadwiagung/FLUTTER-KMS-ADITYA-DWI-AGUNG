@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_123/constant/assets.dart';
+import 'package:flutter_123/theme/theme_color.dart';
 
 class MyGalery extends StatefulWidget {
   const MyGalery({super.key});
@@ -27,6 +28,36 @@ class _MyGaleryState extends State<MyGalery> {
       backgroundColor: const Color.fromARGB(255, 174, 175, 160),
       title: const Text('Galery')
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+             DrawerHeader(
+              decoration: BoxDecoration(
+                color: ThemeColor().m3SysLightPurple90,
+              ),
+              child: Text('Navigation'),
+            ),
+            ListTile(
+              title: const Text('Galery Page'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Contact Page'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(
+                context, 
+                '/contact',
+                );
+              },
+            ),
+          ],
+        ),
+        
+      ),
+
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
