@@ -16,7 +16,7 @@ class ContactListResponse {
   });
 
   factory ContactListResponse.fromJson(Map<String, dynamic> json) => ContactListResponse(
-        id: json["id"],
+        id: json["id"].toString(),
         name: json["name"],
         phone: json["phone"],
       );

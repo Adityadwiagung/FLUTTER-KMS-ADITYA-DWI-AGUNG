@@ -14,29 +14,23 @@ class _ContactScreenState extends State<ContactScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
+  bool isDataLoaded = false;
+
   List<ContactListResponse> _contactListResponse = [];
   String postMessage = '';
 
-  void getContact() {
-  Dio()
-      .get('https://my-json-server.typicode.com/hadihammurabi/flutter-webservice/contacts')
-      .then((value) {
-    List<dynamic> _contactData = value.data;
 
-    for (var element in _contactData) {
-      String id = element["id"].toString(); 
-      String name = element["name"];
-      String phone = element["phone"];
+  Future<ContactListResponse?> getContact() async {
+    final dio = Dio();
+    final response = await dio.get('https://my-json-server.typicode.com/hadihammurabi/flutter-webservice/contacts/2');
 
-      _contactListResponse.add(ContactListResponse(
-        id: id,
-        name: name,
-        phone: phone,
-      ));
+    if (response.statusCode == 200) {
+      final jsonMap = response.data;
+      return ContactListResponse.fromJson(jsonMap);
+    } else {
+      throw Exception('Gagal mengambil data');
     }
-    setState(() {});
-  });
-}
+  }
 
   void postContact() {
     String id = _idController.text.toString();
@@ -71,12 +65,36 @@ class _ContactScreenState extends State<ContactScreen> {
     }
   }
 
-  // @override
-  // void initState() {
-  //   getContact();
-  //   super.initState();
-  // }
-  
+  Future<void> Put() async {
+    Dio dio = Dio();
+    String url = 'https://jsonplaceholder.typicode.com/posts/1';
+    Map<String, dynamic> requestBody = {
+      'id': 1,
+      'title': 'foo',
+      'body': 'bar',
+      'userId': 1,
+    };
+
+    try {
+      Response response = await dio.put(url, data: requestBody);
+
+      if (response.statusCode == 200) {
+
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('PUT request berhasil'),
+        ));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Gagal melakukan PUT request. Status code: ${response.statusCode}'),
+        ));
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Terjadi error: $e'),
+      ));
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -110,8 +128,9 @@ class _ContactScreenState extends State<ContactScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(onPressed: () {
-                  _contactListResponse.clear();
-                  getContact();
+                  setState(() {
+                    isDataLoaded = true;
+                  });
                 }, 
                 child: const Text('GET')),
                 ElevatedButton(onPressed: () {
@@ -119,17 +138,42 @@ class _ContactScreenState extends State<ContactScreen> {
                 }, 
                 child: const Text('POST')),
                 ElevatedButton(onPressed: () {
-
+                  Put();
                 }, 
                 child: const Text('PUT'))
               ],
+            ),
+          Center(
+              child: isDataLoaded
+              ? FutureBuilder<ContactListResponse?>(
+                future: getContact(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else if (snapshot.hasData) {
+                    final contact = snapshot.data;
+                    if (contact != null) {
+                      return ListTile(
+                        leading: Text('${contact.id}'),
+                        title: Text('${contact.name}'),
+                        subtitle: Text('${contact.phone}') ,
+                      );
+                    } else {
+                      return Text('Data tidak tersedia');
+                    }
+                  } else {
+                    return Text('Data tidak tersedia');
+                  }
+                },
+              ) : SizedBox(),
             ),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: _contactListResponse.length,
                 itemBuilder: (context, index) {
-                  // return Text(_contactListResponse[index].name,);
                   return ListTile(
                     leading: Text(_contactListResponse[index].id.toString(),),
                     title: Text(_contactListResponse[index].name,),
