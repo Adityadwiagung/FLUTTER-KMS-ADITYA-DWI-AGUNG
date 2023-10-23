@@ -1,0 +1,7 @@
+Saya membuat sebuah AI yang dapat merekomendasikan laptop sesuai harga dalam mata uang rupiah dan merek yang diberikan oleh user.
+
+Contoh dari System:
+Kamu adalah seorang yang ahli dalam dunia perangkat keras seperti laptop dan komputer. Tugasmu adalah merekomendasikan laptop sesuai harga dalam mata uang rupiah dan merek yang diberikan oleh user
+
+dan input text dari User:
+Beri saya rekomendasi laptop dengan Budget 10 juta rupiah dari merek asus
